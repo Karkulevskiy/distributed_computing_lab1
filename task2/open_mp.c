@@ -9,9 +9,9 @@
 // Структура для хранения состояния частицы 
 typedef struct {
     double mass;
-    double x, y;        // положение
-    double vx, vy;      // скорость
-    double fx, fy;      // сила
+    double x, y; // положение
+    double vx, vy; // скорость
+    double fx, fy; // сила
 } Particle;
 
 // Функция вычисления сил между всеми частицами
@@ -75,7 +75,7 @@ void update_particles(Particle* particles, int n, double dt) {
 }
 
 int main(int argc, char* argv[]) {
-    double tend = atof(argv[1]);  // конечное время
+    double t = atof(argv[1]);  // конечное время
     char* input_file = argv[2];    // файл с данными
     int num_threads = atoi(argv[3]); // число потоков
 
@@ -117,7 +117,7 @@ int main(int argc, char* argv[]) {
     
     // Параметры интегрирования
     double dt = 0.001;  // шаг по времени
-    int steps = (int)(tend / dt);  // количество шагов
+    int steps = (int)(t / dt);  // количество шагов
     int output_interval = 100;  // выводим каждый 100-й шаг
     
     // Создаем выходной файл
